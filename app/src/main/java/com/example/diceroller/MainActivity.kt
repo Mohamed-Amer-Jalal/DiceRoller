@@ -23,16 +23,11 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.diceroller.ui.theme.DiceRollerTheme
-import com.example.diceroller.ui.theme.vactor.diceFive
-import com.example.diceroller.ui.theme.vactor.diceFour
-import com.example.diceroller.ui.theme.vactor.diceOne
-import com.example.diceroller.ui.theme.vactor.diceSix
-import com.example.diceroller.ui.theme.vactor.diceThere
-import com.example.diceroller.ui.theme.vactor.diceTwo
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,14 +52,14 @@ class MainActivity : ComponentActivity() {
 fun DiceWithButtonAndImage(
     modifier: Modifier = Modifier
 ) {
-    var result by remember { mutableIntStateOf(1) }
+    var result by remember { mutableIntStateOf((1..6).random()) }
     val imageResource = when (result) {
-        1 -> diceOne()
-        2 -> diceTwo()
-        3 -> diceThere()
-        4 -> diceFour()
-        5 -> diceFive()
-        else -> diceSix()
+        1 -> R.drawable.dice_1
+        2 -> R.drawable.dice_2
+        3 -> R.drawable.dice_3
+        4 -> R.drawable.dice_4
+        5 -> R.drawable.dice_5
+        else -> R.drawable.dice_6
     }
     Column(
         modifier = modifier
@@ -75,7 +70,7 @@ fun DiceWithButtonAndImage(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Image(
-            painter = imageResource,
+            painter = painterResource(imageResource),
             contentDescription = result.toString()
         )
         Spacer(modifier = modifier.height(16.dp))
@@ -87,7 +82,7 @@ fun DiceWithButtonAndImage(
     }
 }
 
-@Preview(showBackground = true)
+@Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun DiceRollerPreview() {
     DiceRollerTheme {
