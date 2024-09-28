@@ -11,6 +11,9 @@
       <SelectionState runConfigName="AndroidStudioProjects.DiceRoller.app">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
+      <SelectionState runConfigName="StudioProjects.DiceRoller.app">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
     </selectionStates>
   </component>
 </project>
