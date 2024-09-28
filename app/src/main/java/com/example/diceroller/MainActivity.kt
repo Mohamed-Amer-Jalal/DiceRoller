@@ -5,7 +5,6 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -13,6 +12,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -64,7 +64,6 @@ fun DiceWithButtonAndImage(
     }
     Column(
         modifier = modifier
-            .background(color = Color.DarkGray)
             .fillMaxSize()
             .padding(16.dp)
             .wrapContentSize(Alignment.Center),
@@ -77,7 +76,7 @@ fun DiceWithButtonAndImage(
         Spacer(modifier = modifier.height(16.dp))
         Button(
             onClick = { result = (1..6).random() },
-        ) {
+            colors = ButtonDefaults.buttonColors(Color(0xFFE2D3E4))){
             Text(text = stringResource(R.string.roll), fontSize = 24.sp)
         }
     }
